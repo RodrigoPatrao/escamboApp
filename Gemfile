@@ -13,11 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 # Flexible authentication solution for Rails with Warden
 gem 'devise'
-# Internationalization:
-# application
+# Internationalization
 gem 'rails-i18n'
-# Devise
-gem 'devise-i18n'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
