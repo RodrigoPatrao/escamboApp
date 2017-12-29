@@ -17,6 +17,10 @@ gem 'devise'
 gem 'rails-i18n'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# The Font Awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
+# Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

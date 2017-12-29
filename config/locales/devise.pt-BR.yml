@@ -42,7 +42,6 @@ pt-BR:
       updated: "Sua senha foi atualizada com sucesso. Você agora está logado."
       updated_not_active: "Sua senha foi atualizada com sucesso."
     registrations:
-      sign_up: "Entrar"
       destroyed: "Tchau! Sua conta foi cancelada com êxito. Esperamos ver você de novo em breve!"
       signed_up: "Bem-vindo! Você se registrou com êxito."
       signed_up_but_inactive: "Você se registrou com êxito. Entretanto, precisa confirmar sua conta antes de fazer login."
