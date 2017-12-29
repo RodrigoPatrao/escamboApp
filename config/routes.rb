@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   namespace :site do
-    get 'homepage/index'
+    get 'homepage', to: 'homepage#index'
   end
 
   namespace :backoffice do
-  get 'dashboard/index'
+  get 'dashboard', to: 'dashboard#index'
   end
 
   devise_for :admins
