@@ -13,6 +13,8 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= render 'site/partials/navbar' %>
     <%= yield %>
+    <%= render 'site/partials/footer' %>
   </body>
 </html>
