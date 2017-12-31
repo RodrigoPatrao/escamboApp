@@ -11,8 +11,10 @@
       member:
         email: E-mail
         password: Senha
+        current_password: Senha atual
         password_confirmation: Confirme sua Senha
       admin:
         email: E-mail
         password: Senha
+        current_password: Senha atual
         password_confirmation: Confirme sua Senha
