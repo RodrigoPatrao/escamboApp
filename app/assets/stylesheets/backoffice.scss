@@ -1,1 +1,10 @@
 @import "bootstrap_sb_admin_base_v2";
+table {
+  vertical-align: baseline !important;
+  td{
+    &:last-child { text-align: right; }
+  }
+}
+#page-wrapper {
+  padding: 15px 0 !important;
+}
