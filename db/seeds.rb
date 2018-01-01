@@ -23,5 +23,10 @@ end
 puts 'Categories seeded.'
 
 puts 'Creating default Admin...'
-Admin.create!({email: 'admin@admin.com', password: '123456', password_confirmation: '123456'})
+Admin.create!(
+  name: 'Administrador Geral',
+  email: 'admin@admin.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
 puts 'Default Admin created.'

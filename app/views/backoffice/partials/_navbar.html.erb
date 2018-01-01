@@ -9,7 +9,7 @@
     <a class="navbar-brand" href="<%= admin_path %>">EscamboApp - Admininstrativo</a>
   </div>
   <ul class="nav navbar-top-links navbar-right">
-    <li><%= current_admin.email %></li>
+    <li><%= current_admin.name %></li>
     <li>
       <%= link_to fa_icon("power-off", text: "#{I18n.t('devise.sessions.sign_out')}"), destroy_admin_session_path, method: :delete %>
     </li>
