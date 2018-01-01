@@ -9,12 +9,12 @@
         other: Administradores
     attributes:
       member:
-        email: E-mail
+        email: Email
         password: Senha
         current_password: Senha atual
         password_confirmation: Confirme sua Senha
       admin:
-        email: E-mail
+        email: Email
         password: Senha
         current_password: Senha atual
         password_confirmation: Confirme sua Senha

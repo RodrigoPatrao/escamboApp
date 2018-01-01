@@ -1,5 +1,4 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -7,31 +6,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">EscamboApp - Admininstrativo</a>
+    <a class="navbar-brand" href="<%= admin_path %>">EscamboApp - Admininstrativo</a>
   </div>
-  <!-- /.navbar-header -->
-
   <ul class="nav navbar-top-links navbar-right">
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <%= fa_icon("user", text: "#{current_admin.email}") %> <i class="fa fa-caret-down"></i>
-      </a>
-      <ul class="dropdown-menu dropdown-user">
-        <li>
-          <%= link_to edit_admin_registration_path do %>
-            <%= fa_icon("pencil", text: "#{I18n.t('devise.registrations.update')}") %>
-          <% end %>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <%= link_to destroy_admin_session_path, method: :delete do %>
-            <%= fa_icon("sign-out", text: "#{I18n.t('devise.sessions.sign_out')}") %>
-          <% end %>
-      </li>
-      </ul>
-      <!-- /.dropdown-user -->
+    <li><%= current_admin.email %></li>
+    <li>
+      <%= link_to fa_icon("power-off", text: "#{I18n.t('devise.sessions.sign_out')}"), destroy_admin_session_path, method: :delete %>
     </li>
-    <!-- /.dropdown -->
   </ul>
-  <!-- /.navbar-top-links -->
 </nav>

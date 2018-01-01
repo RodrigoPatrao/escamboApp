@@ -21,3 +21,7 @@ categories.each do |c|
   Category.find_or_create_by(description: c)
 end
 puts 'Categories seeded.'
+
+puts 'Creating default Admin...'
+Admin.create!({email: 'admin@admin.com', password: '123456', password_confirmation: '123456'})
+puts 'Default Admin created.'
