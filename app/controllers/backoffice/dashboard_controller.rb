@@ -3,5 +3,6 @@ class Backoffice::DashboardController < ApplicationController
 
   layout 'backoffice'
   def index
+    #code
   end
 end

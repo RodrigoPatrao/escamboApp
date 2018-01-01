@@ -20,6 +20,14 @@
     <![endif]-->
   </head>
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+          <%= yield %>
+          <%= render "partials/flash" %>
+          
+        </div>
+      </div>
+    </div>
   </body>
 </html>
