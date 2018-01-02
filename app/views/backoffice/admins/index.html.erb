@@ -14,6 +14,7 @@
               <tr>
                 <th><%= t(Admin.human_attribute_name(:name)) %></th>
                 <th><%= t(Admin.human_attribute_name(:email)) %></th>
+                <th><%= t(Admin.human_attribute_name(:role)) %></th>
                 <th>
                   <%= link_to fa_icon("plus-circle", text: "Novo Administrador"), new_backoffice_admin_path, class: "btn btn-success pull-right", style: "margin-top: -5px;" %>
                 </th>
@@ -24,11 +25,12 @@
               <tr>
                 <td><%= a.name %></td>
                 <td><%= a.email %></td>
+                <td><%= a.role.capitalize %></td>
                 <td>
                   <%= link_to fa_icon("edit"),
                   edit_backoffice_admin_path(a),
                   class: "btn btn-xs btn-circle btn-warning" %>
-                  <%= link_to fa_icon("trash"),
+                  <%= link_to fa_icon("trash-o"),
                   backoffice_admin_path(a),
                   method: :delete,
                   data: { confirm: "Tem certeza?" },
