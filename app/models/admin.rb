@@ -5,6 +5,5 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [ :full_access, :restricted_access ]
-  scope :with_full_access, -> { where(role: 'full_access') }
-  scope :with_restricted_access, -> { where(role: 'restricted_access') }
+  scope :with_restricted_access, -> { where(role: 1) }
 end

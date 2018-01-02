@@ -27,6 +27,8 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'kaminari'
 # Help ActiveRecord::Enum feature to work fine with I18n
 gem 'enum_help'
+# Minimal authorization through OO design and pure Ruby classes
+gem 'pundit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

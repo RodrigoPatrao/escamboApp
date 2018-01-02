@@ -4,10 +4,11 @@ class Backoffice::AdminsController < ApplicationController
 
   layout 'backoffice'
   def index
-    @admins = Admin.order(:name).page params[:page]
+    @admins = policy_scope(Admin).page params[:page]
   end
   def new
     @admin = Admin.new
+    authorize @admin
   end
   def create
     @admin = Admin.new(admin_params)
@@ -33,6 +34,7 @@ class Backoffice::AdminsController < ApplicationController
   end
   def destroy
     name = @admin.name
+    authorize @admin
     if @admin.destroy
       flash[:success] = "Perfil '#{name}' excluído."
       redirect_to backoffice_admins_path
@@ -52,5 +54,8 @@ class Backoffice::AdminsController < ApplicationController
       params[:admin].except!(:password, :password_confirmation)
     end
     params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
+  end
+  def pundit_user
+    current_admin
   end
 end

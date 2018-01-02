@@ -3,15 +3,17 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-8">
             <p class="panel-title">
               <%= fa_icon("users") %>
               <%= page_entries_info @admins %>
             </p>
           </div>
-          <div class="col-lg-6 text-right">
+          <% if policy(@admins).new? %>
+          <div class="col-lg-4 text-right">
             <%= link_to fa_icon("plus-circle", text: "Novo Administrador"), new_backoffice_admin_path, class: "btn btn-success", style: "margin-top: 0;" %>
           </div>
+          <% end %>
         </div>
       </div>
       <div class="panel-body">
@@ -35,11 +37,13 @@
                   <%= link_to fa_icon("pencil"),
                   edit_backoffice_admin_path(a),
                   class: "btn btn-circle btn-warning" %>
+                  <% if policy(@admins).destroy? %>
                   <%= link_to fa_icon("trash-o"),
                   backoffice_admin_path(a),
                   method: :delete,
                   data: { confirm: "Deseja excluir #{a.name}?" },
                   class: "btn btn-circle btn-danger" %>
+                  <% end %>
                 </td>
               </tr>
               <% end %>
