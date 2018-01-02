@@ -7,6 +7,12 @@
       admin:
         one: Administrador
         other: Administradores
+      category:
+        one: Categoria
+        other: Categorias
+      ad:
+        one: Anúncio
+        other: Anúncios
     attributes:
       member:
         email: Email
@@ -20,3 +26,10 @@
         current_password: Senha atual
         password_confirmation: Confirme sua Senha
         role: Tipo de Acesso
+      category:
+        description: Descrição
+      ad:
+        title: Título
+        description: Descrição
+        category_id: Categoria
+        member_id: Membro

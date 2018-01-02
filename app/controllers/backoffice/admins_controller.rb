@@ -4,7 +4,7 @@ class Backoffice::AdminsController < ApplicationController
 
   layout 'backoffice'
   def index
-    @admins = Admin.order(:email).page params[:page]
+    @admins = Admin.order(:name).page params[:page]
   end
   def new
     @admin = Admin.new
@@ -50,6 +50,6 @@ class Backoffice::AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
   end
   def admin_params
-    params.require(:admin).permit(:email, :password, :password_confirmation)
+    params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
   end
 end
