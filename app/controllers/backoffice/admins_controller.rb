@@ -53,7 +53,7 @@ class Backoffice::AdminsController < ApplicationController
     if passwd.blank? && passwd_conf.blank?
       params[:admin].except!(:password, :password_confirmation)
     end
-    params.require(:admin).permit(:name, :email, :password, :password_confirmation, :role)
+    params.require(:admin).permit(policy(@admin).permitted_attributes)
   end
   def pundit_user
     current_admin

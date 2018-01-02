@@ -4,8 +4,8 @@
       <div class="panel-heading">
         <h3 class="panel-title"><%= header %></h3>
       </div>
-      <div class="panel-body">
-        <%= form_for([:backoffice, @admin]) do |f| %>
+      <%= form_for([:backoffice, @admin]) do |f| %>
+        <div class="panel-body">
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: "form-control" %>
@@ -23,17 +23,19 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, class: "form-control" %>
           </div>
+          <% if policy(@admin).edit? %>
           <div class="form-group">
-            <%= f.label :role %>
-            <%= f.select(:role, options_for_select([['Total', 'full_access'],['Restrito', 'restricted_access']], @admin.role), {}, { class: 'form-control'}) %>
+            <%= f.collection_radio_buttons(:role, options_for_roles, :id, :description) do |b| %>
+              <%= b.label { b.radio_button } %>&nbsp;<%= b.text %><br>
+            <% end %>
           </div>
-          <div class="form-group">
-            <%= f.submit class: "btn btn-success" %>
-            <%= link_to fa_icon("arrow-left", text: "Voltar"), backoffice_admins_path, class: "btn btn-primary" %>
-          </div>
-        <% end %>
-
-      </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <%= f.submit class: "btn btn-success" %>
+          <%= link_to fa_icon("arrow-left", text: "Voltar"), backoffice_admins_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
