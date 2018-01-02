@@ -1,11 +1,18 @@
 <div class="row">
-  <div class="col-lg-9">
+  <div class="col-lg-6">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">
-          <%= fa_icon("tags") %>
-          <%= t(Category.model_name.human(count: Category.count)) %>
-        </h3>
+        <div class="row">
+          <div class="col-lg-8">
+            <p class="panel-title">
+              <%= fa_icon("tags") %>
+              <%= page_entries_info @categories %>
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <%= link_to fa_icon("plus-circle", text: "Adicionar Categoria"), new_backoffice_category_path, class: "btn btn-primary pull-right", style: "margin-top: 0;" %>
+          </div>
+        </div>
       </div>
       <div class="panel-body">
         <div class="table-responsive">
@@ -15,9 +22,7 @@
                 <th>
                   <%= t(Category.human_attribute_name(:description)) %>
                 </th>
-                <th>
-                  <%= link_to fa_icon("plus-circle", text: "Adicionar Categoria"), new_backoffice_category_path, class: "btn btn-success pull-right", style: "margin-top: -5px;" %>
-                </th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -25,14 +30,14 @@
               <tr>
                 <td><%= c.description %></td>
                 <td>
-                  <%= link_to fa_icon("edit"),
+                  <%= link_to fa_icon("pencil"),
                   edit_backoffice_category_path(c),
-                  class: "btn btn-xs btn-circle btn-warning" %>
+                  class: "btn btn-circle btn-warning" %>
                   <%= link_to fa_icon("trash-o"),
                   backoffice_category_path(c),
                   method: :delete,
                   data: { confirm: "Tem certeza?" },
-                  class: "btn btn-xs btn-circle btn-danger" %>
+                  class: "btn btn-circle btn-danger" %>
                 </td>
               </tr>
               <% end %>
@@ -42,10 +47,7 @@
       </div>
       <div class="panel-footer">
         <div class="row">
-          <div class="col-lg-6 text-left">
-            <p><%= page_entries_info @categories %></p>
-          </div>
-          <div class="col-lg-6 text-right">
+          <div class="col-lg-12 text-center">
             <%= paginate @categories %>
           </div>
         </div>

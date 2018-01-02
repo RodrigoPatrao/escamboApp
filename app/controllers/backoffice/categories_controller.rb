@@ -12,7 +12,7 @@ class Backoffice::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "Categoria #{@category.description} adicionada à lista."
+      flash[:success] = "Categoria '#{@category.description}' adicionada à lista."
       redirect_to backoffice_categories_path
     else
       flash[:danger] = "Não foi possível adicionar categoria à lista: #{ @category.errors.messages[:description].join }"
@@ -23,19 +23,20 @@ class Backoffice::CategoriesController < ApplicationController
   end
   def update
     if @category.update(category_params)
-      flash[:success] = "Categoria #{@category.description} atualizada."
+      flash[:success] = "Categoria '#{@category.description}' atualizada."
       redirect_to backoffice_categories_path
     else
-      flash[:danger] = "Não foi possível atualizar #{@category.description}."
+      flash[:danger] = "Não foi possível atualizar '#{@category.description}'."
       redirect_to edit_backoffice_category_path
     end
   end
   def destroy
+    description = @category.description
     if @category.destroy
-      flash[:success] = "Categoria #{@category.description} excluída."
+      flash[:success] = "Categoria '#{description}' excluída."
       redirect_to backoffice_categories_path
     else
-      flash[:danger] = "Não foi possível excluir #{@category.description}."
+      flash[:danger] = "Não foi possível excluir '#{description}'."
       redirect_to backoffice_categories_path
     end
   end

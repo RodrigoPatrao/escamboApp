@@ -25,7 +25,7 @@
         password: Senha
         current_password: Senha atual
         password_confirmation: Confirme sua Senha
-        role: Tipo de Acesso
+        role: Acesso
       category:
         description: Descrição
       ad:
