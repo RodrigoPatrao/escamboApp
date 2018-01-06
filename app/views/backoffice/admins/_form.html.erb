@@ -25,6 +25,7 @@
           </div>
           <% if policy(@admin).edit? %>
           <div class="form-group">
+            <label>Acesso</label><br>
             <%= f.collection_radio_buttons(:role, options_for_roles, :id, :description) do |b| %>
               <%= b.label { b.radio_button } %>&nbsp;<%= b.text %><br>
             <% end %>

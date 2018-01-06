@@ -1,4 +1,3 @@
-
 @import "bootstrap_sb_admin_base_v2";
 .alert-alert {
   @extend .alert-danger;
@@ -12,8 +11,8 @@ table {
   margin-bottom: 0!important;
   padding-bottom: 0!important;
   td{
-    font-size: 1.2em;
-    vertical-align: bottom !important;
+    // font-size: 1.2em;
+    vertical-align: middle !important;
     &:last-child {
       text-align: right;
       font-size: 1em;
@@ -31,6 +30,5 @@ table {
   padding: 0 !important;
 }
 .panel-title {
-  font-size: 1.2em;
-  padding-top: 6px;
+  margin-top: 6px;
 }

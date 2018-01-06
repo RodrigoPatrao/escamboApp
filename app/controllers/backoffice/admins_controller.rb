@@ -11,7 +11,8 @@ class Backoffice::AdminsController < ApplicationController
     authorize @admin
   end
   def create
-    @admin = Admin.new(admin_params)
+    @admin = Admin.new
+    @admin.update_attributes(permitted_attributes(@admin))
     if @admin.save
       flash[:success] = "Perfil '#{@admin.name}' adicionado à lista."
       redirect_to backoffice_admins_path
@@ -23,12 +24,16 @@ class Backoffice::AdminsController < ApplicationController
   def edit
   end
   def update
-
-    if @admin.update(admin_params)
+    passwd = params[:admin][:password]
+    passwd_conf = params[:admin][:password_confirmation]
+    if passwd.blank? && passwd_conf.blank?
+      params[:admin].except!(:password, :password_confirmation)
+    end
+    if @admin.update(permitted_attributes(@admin))
       flash[:success] = "Perfil para '#{@admin.name}' atualizado."
       redirect_to backoffice_admins_path
     else
-      flash[:danger] = "Não foi possível atualizar '#{@admin.name}'."
+      flash[:danger] = "Não foi possível atualizar '#{@admin.name}': #{@admin.errors.messages.flatten.join(' ')}."
       redirect_to edit_backoffice_admin_path
     end
   end
@@ -47,14 +52,14 @@ class Backoffice::AdminsController < ApplicationController
   def set_admin
     @admin = Admin.find(params[:id])
   end
-  def admin_params
-    passwd = params[:admin][:password]
-    passwd_conf = params[:admin][:password_confirmation]
-    if passwd.blank? && passwd_conf.blank?
-      params[:admin].except!(:password, :password_confirmation)
-    end
-    params.require(:admin).permit(policy(@admin).permitted_attributes)
-  end
+  # def admin_params
+  #   passwd = params[:admin][:password]
+  #   passwd_conf = params[:admin][:password_confirmation]
+  #   if passwd.blank? && passwd_conf.blank?
+  #     params[:admin].except!(:password, :password_confirmation)
+  #   end
+  #   params.require(:admin).permit(policy(@admin).permitted_attributes)
+  # end
   def pundit_user
     current_admin
   end
