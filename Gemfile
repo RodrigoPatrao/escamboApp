@@ -30,6 +30,7 @@ gem 'enum_help'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -38,6 +39,10 @@ group :development, :test do
 end
 
 group :development do
+  # Manage Procfile-based applications
+  gem 'foreman'
+  # rvm aware process launcher for foreman
+  gem 'subcontractor'
   # Generate Entity-Relationship Diagrams for Rails applications
   gem 'rails-erd', require: false
   # Access an IRB console on exception pages or by using <%= console %> in views

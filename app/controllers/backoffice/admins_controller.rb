@@ -30,7 +30,7 @@ class Backoffice::AdminsController < ApplicationController
       params[:admin].except!(:password, :password_confirmation)
     end
     if @admin.update(permitted_attributes(@admin))
-      flash[:success] = "Perfil para '#{@admin.name}' atualizado."
+      AdminMailer.update_email(current_admin, @admin).deliver_now
       redirect_to backoffice_admins_path
     else
       flash[:danger] = "Não foi possível atualizar '#{@admin.name}': #{@admin.errors.messages.flatten.join(' ')}."
