@@ -4,7 +4,7 @@
       <div class="col-lg-8">
         <p class="panel-title">
           <%= fa_icon("users") %>
-          <%= page_entries_info @admins %>
+          Administradores
         </p>
       </div>
       <% if policy(@admins).new? %>
@@ -27,23 +27,29 @@
         </thead>
         <tbody>
           <% @admins.each do |a| %>
-          <tr>
-            <td><%= a.name %></td>
-            <td><%= a.email %></td>
-            <td><%= a.role_i18n %></td>
-            <td>
-              <%= link_to fa_icon("pencil"),
-              edit_backoffice_admin_path(a),
-              class: "btn btn-circle btn-warning" %>
-              <% if policy(@admins).destroy? %>
-              <%= link_to fa_icon("trash-o"),
-              backoffice_admin_path(a),
-              method: :delete,
-              data: { confirm: "Deseja excluir #{a.name}?" },
-              class: "btn btn-circle btn-danger" %>
-              <% end %>
-            </td>
-          </tr>
+            <% if a != current_admin %>
+              <tr>
+                <td><%= a.name %></td>
+                <td><%= a.email %></td>
+                <td><%= a.role_i18n %></td>
+                <td>
+                  <%= link_to fa_icon("envelope"),
+                    '#',
+                    class: "btn btn-circle btn-primary",
+                    data: { toggle: 'modal', target: '#sendEmailModal', name: a.name, email: a.email } %>
+                  <%= link_to fa_icon("pencil"),
+                  edit_backoffice_admin_path(a),
+                  class: "btn btn-circle btn-warning" %>
+                  <% if policy(@admins).destroy? %>
+                    <%= link_to fa_icon("trash-o"),
+                    backoffice_admin_path(a),
+                    method: :delete,
+                    data: { confirm: "Deseja excluir #{a.name}?" },
+                    class: "btn btn-circle btn-danger" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
@@ -57,3 +63,4 @@
     </div>
   </div>
 </div>
+<%= render "sendMail" %>

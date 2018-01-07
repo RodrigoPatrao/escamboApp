@@ -9,9 +9,19 @@
     <a class="navbar-brand" href="<%= admin_path %>">EscamboApp - Administrativo</a>
   </div>
   <ul class="nav navbar-top-links navbar-right">
-    <li><%= current_admin.name %></li>
-    <li>
-      <%= link_to fa_icon("power-off", text: "#{I18n.t('devise.sessions.sign_out')}"), destroy_admin_session_path, method: :delete %>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= fa_icon("gears", text: "#{current_admin.name}") %>
+        <%= fa_icon("caret-down") %>
+      </a>
+      <ul class="dropdown-menu dropdown-settings">
+        <li>
+          <%= link_to fa_icon("edit", text: "Editar Perfil"), edit_backoffice_admin_path(current_admin) %>
+        </li>
+        <li>
+          <%= link_to fa_icon("power-off", text: "Logoff"), destroy_admin_session_path, method: :delete %>
+        </li>
+      </ul>
     </li>
   </ul>
 </nav>
