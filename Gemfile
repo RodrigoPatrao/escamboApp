@@ -39,6 +39,8 @@ group :development, :test do
 end
 
 group :development do
+  # Rails >= 3 pry initializer
+  gem 'pry-rails'
   # Manage Procfile-based applications
   gem 'foreman'
   # rvm aware process launcher for foreman
