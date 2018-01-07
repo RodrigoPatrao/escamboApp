@@ -1,0 +1,34 @@
+@import "bootstrap_sb_admin_base_v2";
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+table {
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
+  td{
+    // font-size: 1.2em;
+    vertical-align: middle !important;
+    &:last-child {
+      text-align: right;
+      font-size: 1em;
+    }
+  }
+}
+.table-responsive {
+  margin-bottom: 0 !important;
+}
+#page-wrapper {
+  padding: 15px 0 !important;
+}
+.pagination {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.panel-title {
+  margin-top: 6px;
+}

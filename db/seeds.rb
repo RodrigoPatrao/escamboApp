@@ -5,3 +5,29 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+puts 'Seeding categories...'
+30.times { Category.find_or_create_by(description: Faker::Commerce.product_name) }
+# categories = ['Animais e Acessórios',
+#               'Esportes',
+#               'Para a sua Casa',
+#               'Eletrônicos e Celulares',
+#               'Música e Hobbies',
+#               'Bebês e Crianças',
+#               'Moda e Beleza',
+#               'Veículos e Barcos',
+#               'Imóveis',
+#               'Empregos e Negócios']
+#
+# categories.each do |c|
+#   Category.find_or_create_by(description: c)
+# end
+puts 'Categories seeded.'
+puts 'Creating default Admin...'
+Admin.create!(
+  name: 'Administrador Geral',
+  email: 'admin@admin.com',
+  password: '123456',
+  password_confirmation: '123456',
+  role: 0
+)
+puts 'Default Admin created.'
