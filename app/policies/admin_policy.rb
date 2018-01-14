@@ -23,9 +23,9 @@ class AdminPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.full_access?
-        scope.order(:role)
+        scope.where.not(name: user.name).order(role: :asc, name: :asc)
       else
-        scope.with_restricted_access
+        scope.where.not(name: user.name).where(role: 1).order(role: :asc, name: :asc)
       end
     end
   end

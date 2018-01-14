@@ -26,33 +26,40 @@
         </thead>
         <tbody>
           <% @admins.each do |a| %>
+          <% if a != current_admin %>
           <tr>
             <td><%= a.name %></td>
             <td><%= a.email %></td>
             <td><%= a.role_i18n %></td>
             <td>
-              <% if a != current_admin %>
-                <%= link_to fa_icon("envelope"),
-                  '#',
-                  class: "btn btn-circle btn-primary",
-                  data: {
-                    toggle: 'modal',
-                    target: '#sendEmailModal',
-                    name: a.name,
-                    email: a.email
-                  }
-                %>
-                <%= link_to fa_icon("pencil"), edit_backoffice_admin_path(a), class: "btn btn-circle btn-warning" %>
-                <% if policy(@admins).destroy? %>
-                  <%= link_to fa_icon("trash-o"),
-                  backoffice_admin_path(a),
-                  method: :delete,
-                  data: { confirm: "Deseja excluir #{a.name}?" },
-                  class: "btn btn-circle btn-danger" %>
-                <% end %>
+              <%= link_to fa_icon("envelope"),
+                '#',
+                class: "btn btn-circle btn-primary",
+                data: {
+                  toggle: 'modal',
+                  target: '#sendEmailModal',
+                  name: a.name,
+                  email: a.email
+                }
+              %>
+              <%= link_to fa_icon("pencil"), edit_backoffice_admin_path(a), class: "btn btn-circle btn-warning" %>
+              <% if policy(@admins).destroy? %>
+                <%= link_to fa_icon("trash-o"),
+                backoffice_admin_path(a),
+                method: :delete,
+                data: { confirm: "Deseja excluir #{a.name}?" },
+                class: "btn btn-circle btn-danger" %>
               <% end %>
             </td>
           </tr>
+          <% else %>
+          <tr>
+            <td><%= a.name %></td>
+            <td><%= a.email %></td>
+            <td><%= a.role_i18n %></td>
+            <td></td>
+          </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>

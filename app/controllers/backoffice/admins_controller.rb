@@ -5,7 +5,7 @@ class Backoffice::AdminsController < ApplicationController
 
   layout 'backoffice'
   def index
-    @admins = policy_scope(Admin).page params[:page]
+    @admins = policy_scope(Admin).page(params[:page])
   end
   def new
     authorize @admin
