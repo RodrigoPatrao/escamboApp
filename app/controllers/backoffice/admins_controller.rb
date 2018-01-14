@@ -16,7 +16,7 @@ class Backoffice::AdminsController < ApplicationController
       flash[:success] = "Perfil '#{@admin.name}' adicionado à lista."
       redirect_to backoffice_admins_path
     else
-      flash[:danger] = "Não foi possível adicionar '#{@admin.name}' à lista: #{ @admin.errors.messages[:description].join }"
+      flash[:danger] = "Não foi possível adicionar '#{@admin.name}' à lista: #{@admin.errors.messages.flatten.join(' ')}."
       redirect_to new_backoffice_admin_path
     end
   end
