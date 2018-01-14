@@ -1,6 +1,16 @@
 namespace :utils do
   desc "TODO"
   task seed: :environment do
+    puts 'Creating Fake Admins (10)...'
+    10.times {
+      Admin.create!(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password: '123456',
+      password_confirmation: '123456',
+      role: 1
+    )}
+    puts '10 fake admin profiles created.'
     puts 'Creating Fake Members (50)...'
     50.times {
       Member.create!(
