@@ -26,7 +26,8 @@ namespace :utils do
         title: Faker::Commerce.product_name,
         description: Faker::Lorem.sentence([1,2,3].sample),
         category: Category.all.sample,
-        member: Member.all.sample
+        member: Member.all.sample,
+        price_cents: [199, 999, 1499].sample
       )
     }
     puts '100 fake Ads created.'

@@ -45,7 +45,7 @@
             <h4 class="card-title">
               <a href="#"><%= ad.title %></a>
             </h4>
-            <h5>$24.99</h5>
+            <h5><%= humanized_money_with_symbol(ad.price) %></h5>
             <p class="card-text"><%= ad.description %></p>
           </div>
           <div class="card-footer">
