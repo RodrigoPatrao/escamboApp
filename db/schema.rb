@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180101221138) do
+ActiveRecord::Schema.define(version: 20180114211731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20180101221138) do
     t.text     "description"
     t.integer  "category_id"
     t.integer  "member_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "price_cents",             default: 0
   end
 
   add_index "ads", ["category_id"], name: "index_ads_on_category_id", using: :btree
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180101221138) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
