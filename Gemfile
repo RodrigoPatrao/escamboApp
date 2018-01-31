@@ -18,7 +18,7 @@ gem 'rails-i18n'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 # The Font Awesome font bundled as an asset for the rails asset pipeline
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
 # Build responsive, mobile-first projects on the web with the world's most popular front-end component library.
@@ -31,6 +31,8 @@ gem 'enum_help'
 gem 'pundit'
 # Integration of RubyMoney - Money with Rails
 gem 'money-rails', '~>1'
+# Easy file attachment management for ActiveRecord
+gem 'paperclip', '~> 5.0.0'
 
 
 group :development, :test do
