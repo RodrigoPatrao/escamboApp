@@ -1,10 +1,13 @@
 
 <div class="row">
   <div class="col-lg-3">
-    <h1 class="my-4">EscamboApp</h1>
+    <h1 class="my-4"><%= t(Category.model_name.human(count: @categories.count)) %></h1>
     <div class="list-group">
       <% @categories.each do |cat| %>
-        <a href="#" class="list-group-item"><%= cat.description %></a>
+        <a href="#" class="list-group-item">
+          <%= fa_icon("caret-right") %>
+          <%= cat.description %>
+        </a>
       <% end %>
     </div>
   </div>
@@ -40,7 +43,7 @@
       <% @ads.each do |ad| %>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <%= image_tag ad.picture.url(:medium) %>
           <div class="card-body">
             <h4 class="card-title">
               <a href="#"><%= ad.title %></a>

@@ -3,7 +3,8 @@
     <div class="row">
       <div class="col-lg-8">
         <p class="panel-title">
-          <%= fa_icon("users", text: page_entries_info(@admins)) %>
+          <%= fa_icon("users") %>
+          <%= page_entries_info(@admins) %>
         </p>
       </div>
       <% if policy(@admins).new? %>

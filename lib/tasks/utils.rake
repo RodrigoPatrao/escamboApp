@@ -1,5 +1,5 @@
 namespace :utils do
-  desc "TODO"
+  desc "Fake data generation"
   task seed: :environment do
     puts 'Creating Fake Admins (10)...'
     10.times {
@@ -27,10 +27,10 @@ namespace :utils do
         description: Faker::Lorem.sentence([1,2,3].sample),
         category: Category.all.sample,
         member: Member.all.sample,
-        price_cents: [199, 999, 1499].sample
+        price_cents: "#{Random.rand(500)},#{Random.rand(99)}",
+        picture: File.new(Rails.root.join('public', 'templates', 'images_for_ads', "#{Random.rand(9)}.jpg"), 'r')
       )
     }
     puts '100 fake Ads created.'
   end
-
 end

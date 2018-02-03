@@ -12,4 +12,8 @@
 !/log/.keep
 /tmp
 /.byebug_history
-/.idea
+# Ignore Vagrant machine
+/.vagrant
+# Ignore development example templates and images from Paperclip
+/public/templates
+/public/system
