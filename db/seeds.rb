@@ -22,3 +22,11 @@ Admin.create!(
   role: 0
 )
 puts 'Default Admin created.'
+puts 'Creating default Member...'
+Member.create!(
+  name: 'Praxedes',
+  email: 'member@member.com',
+  password: '123456',
+  password_confirmation: '123456'
+)
+puts 'Default Member created.'
