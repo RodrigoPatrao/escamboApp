@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # Provisioning
-  # Update & upgrade, remove system Ruby
+  # Update & upgrade, remove system Ruby, NodeJS
   config.vm.provision :shell, path: "provision/install-utilities.sh", privileged: false
   # RVM
   config.vm.provision :shell, path: "provision/install-rvm.sh", args: "stable", privileged: false

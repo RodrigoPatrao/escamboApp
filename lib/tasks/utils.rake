@@ -27,7 +27,7 @@ namespace :utils do
         description: Faker::Lorem.sentence([1,2,3].sample),
         category: Category.all.sample,
         member: Member.all.sample,
-        price_cents: "#{Random.rand(500)},#{Random.rand(99)}",
+        price: "#{Random.rand(500)},#{Random.rand(99)}",
         picture: File.new(Rails.root.join('public', 'templates', 'images_for_ads', "#{Random.rand(9)}.jpg"), 'r')
       )
     }
