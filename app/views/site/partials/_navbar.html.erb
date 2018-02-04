@@ -13,7 +13,7 @@
             <%= current_member.name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to fa_icon("user", text: "Conta"), edit_member_registration_path, class: "dropdown-item" %>
+            <%= link_to fa_icon("user", text: "Conta"), site_profile_dashboard_index_path	, class: "dropdown-item" %>
             <%= link_to fa_icon("power-off", text: "Logoff"), destroy_member_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
