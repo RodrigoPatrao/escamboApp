@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-header bg-secondary ">
+
+    <div class="row">
+      <div class="col-sm text-left">
+        <span class="text-white font-weight-bold lead btn-table">Anúncios</span>
+      </div>
+      <div class="col-sm text-right">
+        <%= link_to fa_icon("plus-circle", text: "Novo Anúncio"), site_profile_ads_index_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped table-hover table-sm">
+      <thead>
+        <tr>
+          <th><%= t Ad.human_attribute_name(:picture) %></th>
+          <th><%= t Ad.human_attribute_name(:title) %></th>
+          <th><%= t Ad.human_attribute_name(:category_id) %></th>
+          <th><%=  t Ad.human_attribute_name(:price) %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ads.each do |ad| %>
+          <tr>
+            <td><%= image_tag ad.picture(:thumb) %></td>
+            <td><%= ad.title %></td>
+            <td><%= ad.category.description %></td>
+            <td><%= humanized_money_with_symbol ad.price %></td>
+            <td class="text-right">
+              <%= link_to fa_icon("pencil"), site_profile_ads_index_path, class: 'btn btn-sm btn-warning' %>
+              <%= link_to fa_icon("trash"), site_profile_ads_index_path, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <p>&nbsp;</p>
+  </div>
+</div>

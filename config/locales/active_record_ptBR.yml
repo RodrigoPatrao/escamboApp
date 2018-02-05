@@ -32,4 +32,7 @@
         title: Título
         description: Descrição
         category_id: Categoria
+        picture: Imagem
         member_id: Membro
+        price: Valor
+        created_at: Postado em

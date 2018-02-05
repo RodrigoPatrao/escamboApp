@@ -1,6 +1,6 @@
-namespace :utils do
+namespace :dev do
   desc "Setup Application DB"
-  task setup_dev: :environment do
+  task setup: :environment do
     images_path = Rails.root.join('public', 'system')
     puts "Starting Setup..."
     puts "Drop DB... #{%x(rake db:drop)}"
@@ -8,7 +8,7 @@ namespace :utils do
     puts "Create DB... #{%x(rake db:create)}"
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
-    puts %x(rake utils:seed)
+    puts %x(rake dev:seed)
     puts "Setup Complete."
   end
   desc "Fake data generation"

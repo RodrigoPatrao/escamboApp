@@ -1,2 +1,11 @@
 @import "bootstrap";
 @import "shop-homepage";
+.alert-alert {
+  @extend .alert-danger;
+}
+.alert-notice {
+  @extend .alert-info;
+}
+#flash {
+  margin-top: 10px;
+}
