@@ -6,7 +6,7 @@
         <span class="text-white font-weight-bold lead btn-table">Anúncios</span>
       </div>
       <div class="col-sm text-right">
-        <%= link_to fa_icon("plus-circle", text: "Novo Anúncio"), site_profile_ads_index_path, class: "btn btn-success" %>
+        <%= link_to fa_icon("plus-circle", text: "Novo Anúncio"), site_profile_ads_path, class: "btn btn-success" %>
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
           <th><%= t Ad.human_attribute_name(:picture) %></th>
           <th><%= t Ad.human_attribute_name(:title) %></th>
           <th><%= t Ad.human_attribute_name(:category_id) %></th>
-          <th><%=  t Ad.human_attribute_name(:price) %></th>
+          <th><%= t Ad.human_attribute_name(:price) %></th>
           <th></th>
         </tr>
       </thead>
@@ -29,8 +29,8 @@
             <td><%= ad.category.description %></td>
             <td><%= humanized_money_with_symbol ad.price %></td>
             <td class="text-right">
-              <%= link_to fa_icon("pencil"), site_profile_ads_index_path, class: 'btn btn-sm btn-warning' %>
-              <%= link_to fa_icon("trash"), site_profile_ads_index_path, class: 'btn btn-sm btn-danger' %>
+              <%= link_to fa_icon("pencil"), edit_site_profile_ad_path(ad), class: 'btn btn-sm btn-warning' %>
+              <%= link_to fa_icon("trash"), site_profile_ad_path(ad), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Tem certeza? Operação sem retorno!' } %>
             </td>
           </tr>
         <% end %>

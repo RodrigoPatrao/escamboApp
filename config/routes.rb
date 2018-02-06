@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
 
-
-  namespace :site do
-  namespace :profile do
-    get 'ads/index'
-    end
-  end
-
   namespace :site do
     get '/', to: 'homepage#index'
     namespace :profile do
       resources :dashboard, only: [:index]
+      resources :ads, only: [:index, :edit, :update, :destroy]
     end
   end
 
