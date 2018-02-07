@@ -1,12 +1,11 @@
 <div class="card">
-  <div class="card-header bg-secondary ">
-
+  <div class="card-header bg-dark ">
     <div class="row">
       <div class="col-sm text-left">
         <span class="text-white font-weight-bold lead btn-table">Anúncios</span>
       </div>
       <div class="col-sm text-right">
-        <%= link_to fa_icon("plus-circle", text: "Novo Anúncio"), site_profile_ads_path, class: "btn btn-success" %>
+        <%= link_to fa_icon("plus-circle", text: "Novo Anúncio"), new_site_profile_ad_path, class: "btn btn-success" %>
       </div>
     </div>
   </div>
@@ -24,7 +23,11 @@
       <tbody>
         <% @ads.each do |ad| %>
           <tr>
-            <td><%= image_tag ad.picture(:thumb) %></td>
+            <td>
+            <% if ad.picture.present? %>
+              <%= image_tag ad.picture(:thumb) %>
+            <% end %>
+            </td>
             <td><%= ad.title %></td>
             <td><%= ad.category.description %></td>
             <td><%= humanized_money_with_symbol ad.price %></td>

@@ -1,16 +1,16 @@
 class Backoffice::CategoriesController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_category, only: [:edit, :update, :destroy]
+  before_action :get_category, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:new, :create]
 
   layout 'backoffice'
   def index
     @categories = Category.order(:description).page params[:page]
   end
   def new
-    @category = Category.new
   end
   def create
-    @category = Category.new(category_params)
+    @category.update_attributes(category_params)
     if @category.save
       flash[:success] = "Categoria '#{@category.description}' adicionada à lista."
       redirect_to backoffice_categories_path
@@ -41,8 +41,11 @@ class Backoffice::CategoriesController < ApplicationController
     end
   end
   private
-  def set_category
+  def get_category
     @category = Category.find(params[:id])
+  end
+  def set_category
+    @category = Category.new
   end
   def category_params
     params.require(:category).permit(:description)
