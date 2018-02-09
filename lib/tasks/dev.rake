@@ -40,7 +40,8 @@ namespace :dev do
         category: Category.all.sample,
         member: Member.all.sample,
         price: "#{Random.rand(500)},#{Random.rand(99)}",
-        picture: File.new(Rails.root.join('public', 'templates', 'images_for_ads', "#{Random.rand(9)}.jpg"), 'r')
+        picture: File.new(Rails.root.join('public', 'templates', 'images_for_ads', "#{Random.rand(9)}.jpg"), 'r'),
+        finish_date: Date.tomorrow
       )
     }
     puts '100 fake Ads created.'

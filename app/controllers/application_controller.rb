@@ -27,5 +27,10 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+    if devise_controller? && resource_name == :member
+      "devise"
+    else
+      "application"
+    end
   end
 end

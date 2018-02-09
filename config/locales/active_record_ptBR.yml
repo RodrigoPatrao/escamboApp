@@ -35,4 +35,5 @@
         picture: Imagem
         member_id: Membro
         price: Valor
+        finish_date: Expira em
         created_at: Postado em

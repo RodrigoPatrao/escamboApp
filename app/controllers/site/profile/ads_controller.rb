@@ -45,6 +45,6 @@ class Site::Profile::AdsController < Site::ProfileController
     @ad = Ad.find(params[:id])
   end
   def params_ad
-    params.require(:ad).permit(:title, :description, :category_id, :price, :picture)
+    params.require(:ad).permit(:title, :description, :category_id, :price, :picture, :finish_date)
   end
 end

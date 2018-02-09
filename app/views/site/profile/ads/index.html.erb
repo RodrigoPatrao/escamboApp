@@ -17,6 +17,7 @@
           <th><%= t Ad.human_attribute_name(:title) %></th>
           <th><%= t Ad.human_attribute_name(:category_id) %></th>
           <th><%= t Ad.human_attribute_name(:price) %></th>
+          <th><%= t Ad.human_attribute_name(:finish_date) %></th>
           <th></th>
         </tr>
       </thead>
@@ -31,6 +32,7 @@
             <td><%= ad.title %></td>
             <td><%= ad.category.description %></td>
             <td><%= humanized_money_with_symbol ad.price %></td>
+            <td><%= l ad.finish_date %></td>
             <td class="text-right">
               <%= link_to fa_icon("pencil"), edit_site_profile_ad_path(ad), class: 'btn btn-sm btn-warning' %>
               <%= link_to fa_icon("trash"), site_profile_ad_path(ad), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Tem certeza? Operação sem retorno!' } %>
